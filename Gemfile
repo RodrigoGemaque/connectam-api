@@ -18,8 +18,13 @@ gem 'faker'
  #
 gem 'ransack'
 gem 'rack-cors'
-
 gem 'pry'
+
+#external gems
+
+gem 'devise_token_auth'
+
+#end
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
