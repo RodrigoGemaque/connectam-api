@@ -68,8 +68,8 @@ namespace :dev do
       
       1.times do |i|
         Route.create!(
-          departure: Harbor.first.city.name,
-          arrival: Harbor.second.city.name,
+          departure: Harbor.second.city.name,
+          arrival: Harbor.first.city.name,
           harbor_id: 2
         )
      end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  mount_devise_token_auth_for 'User', at: 'auth/user'
   
   namespace :admin, defaults: { format: :json}  do
     namespace :v1 do
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
                 :routes,
                 :line_items,
                 :travels, only: [:index, :create, :show, :destroy]
+
+      get "home" => "home#index"          
     end
   end
  
