@@ -1,5 +1,5 @@
 module Admin::V1
-  class OrdersController < ApiController
+  class OrdersController < ApplicationController
     before_action :load_order, only: [:show]
     def index
       @orders = Order.all
@@ -17,8 +17,8 @@ module Admin::V1
     private
 
     def order_params
-      params.require(:order).permit(
-                                    line_items_attributes: [:quantity, :travel_id] )
+      params.require(:order).permit(:user_id, 
+                                    line_items_attributes: [:status,:quantity, :travel_id, tickets_attributes:[:name,:cpf, :email] ])
     end
 
     def save_order!
