@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
   has_many :line_items
-
   validates :total_value, :status, presence: true
   
   enum status:{waiting: 0, delivered: 1}

@@ -1,7 +1,8 @@
 json.id ticket.id
 json.cpf ticket.cpf
 json.name ticket.name
-json.phone_number ticket.phone_number
+json.email ticket.email
+
 
 
 # json.ship ticket.travel.ship.name

@@ -1,5 +1,5 @@
 module Admin::V1
-  class CitiesController < ApiController
+  class CitiesController < ApplicationController
     before_action :load_city, only: [:show, :destroy]
     def index
       @cities = City.all

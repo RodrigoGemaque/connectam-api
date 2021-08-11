@@ -1,5 +1,5 @@
 module Admin::V1
-  class TravelsController < ApiController
+  class TravelsController < ApplicationController
     before_action :load_travel, only: [:show, :destroy]
     def index 
       @travels = Travel.all
