@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   validates :name, :email, presence: true
   validates :profile, presence: true
 
-  enum profile: { admin: 0, client: 1}
+  enum profile: { admin: 0, client: 1, intermediary: 2, ship_owner: 3}
 
 end
