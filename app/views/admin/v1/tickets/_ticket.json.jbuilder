@@ -2,6 +2,9 @@ json.id ticket.id
 json.cpf ticket.cpf
 json.name ticket.name
 json.email ticket.email
+json.ship ticket.line_item.travel.ship.name
+json.departure ticket.line_item.travel.route.departure
+json.arrival ticket.line_item.travel.route.arrival
 
 
 
