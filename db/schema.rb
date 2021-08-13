@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_195520) do
+ActiveRecord::Schema.define(version: 2021_08_12_001105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,9 +58,10 @@ ActiveRecord::Schema.define(version: 2021_08_05_195520) do
   end
 
   create_table "line_items", force: :cascade do |t|
+    t.integer "status"
     t.integer "quantity"
-    t.bigint "travel_id", null: false
     t.bigint "order_id", null: false
+    t.bigint "travel_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_line_items_on_order_id"
@@ -100,11 +101,13 @@ ActiveRecord::Schema.define(version: 2021_08_05_195520) do
   create_table "tickets", force: :cascade do |t|
     t.string "name"
     t.string "cpf"
-    t.string "phone_number"
+    t.string "email"
+    t.bigint "ship_id"
     t.bigint "line_item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["line_item_id"], name: "index_tickets_on_line_item_id"
+    t.index ["ship_id"], name: "index_tickets_on_ship_id"
   end
 
   create_table "travels", force: :cascade do |t|
@@ -133,7 +136,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_195520) do
     t.string "unconfirmed_email"
     t.string "name"
     t.string "email"
-    t.integer "profile", default: 1
+    t.integer "profile"
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -151,6 +154,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_195520) do
   add_foreign_key "routes", "harbors"
   add_foreign_key "ships", "owner_ships"
   add_foreign_key "tickets", "line_items"
+  add_foreign_key "tickets", "ships"
   add_foreign_key "travels", "routes"
   add_foreign_key "travels", "ships"
 end

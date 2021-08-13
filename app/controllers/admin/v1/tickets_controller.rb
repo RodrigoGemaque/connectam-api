@@ -1,5 +1,5 @@
 module Admin::V1
-  class TicketsController < ApiController
+  class TicketsController < ApplicationController
     ActionController::Parameters.permit_all_parameters = true
     before_action :load_ticket, only: [:show]
     def index
