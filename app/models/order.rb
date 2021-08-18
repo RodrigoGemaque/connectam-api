@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  belongs_to :user
   has_many :line_items
   validates :total_value, :status, presence: true
   
