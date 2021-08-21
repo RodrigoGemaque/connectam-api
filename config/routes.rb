@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   
   
-  namespace :admin, defaults: { format: :json}  do
+  namespace :admin  do
     namespace :v1 do
       resources :cities,
                 :harbors,
