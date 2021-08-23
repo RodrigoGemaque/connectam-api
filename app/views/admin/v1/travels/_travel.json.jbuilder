@@ -1,7 +1,9 @@
 json.id travel.id
 json.date travel.date
+json.hour travel.hour.strftime("%H:%M")
 json.route travel.route_id
 json.price travel.price
+
 
 json.ship travel.ship.name
 json.ship_id travel.ship.id

@@ -75,12 +75,12 @@ c.image.attach(io: File.open(path_image), filename: 'ship5.jpg')
 
 puts 'Criando Viagens'
 c = Travel.create(id: 1, date: '07-07-2021',price: 80, hour: '12:00', ship_id: 1, route_id: 1)
-c = Travel.create(id: 2, date: '10-07-2021',price: 80, hour: '12:00', ship_id: 1, route_id: 2)
+c = Travel.create(id: 2, date: '10-07-2021',price: 80, hour: '20:00', ship_id: 1, route_id: 2)
 
 
-c = Travel.create(id: 3, date: '10-07-2021',price: 30, hour: '12:00', ship_id: 4, route_id: 3)
+c = Travel.create(id: 3, date: '10-07-2021',price: 30, hour: '15:40', ship_id: 4, route_id: 3)
 c = Travel.create(id: 4, date: '12-07-2021',price: 30, hour: '12:00', ship_id: 4, route_id: 4)
 
 
-c = Travel.create(id: 5, date: '15-07-2021',price: 30, hour: '12:00', ship_id: 2, route_id: 5)
+c = Travel.create(id: 5, date: '15-07-2021',price: 30, hour: '13:00', ship_id: 2, route_id: 5)
 c = Travel.create(id: 6, date: '18-07-2021',price: 30, hour: '12:00', ship_id: 2, route_id: 6)
