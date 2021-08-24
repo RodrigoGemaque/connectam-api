@@ -44,9 +44,9 @@ d = Route.create(id: 8, departure: Harbor.fourth.city.name ,arrival: Harbor.firs
 
 
 puts 'Criando Donos de Embarcacoes '
-c = OwnerShip.create(id: 1, name: 'Erlon Rocha')
-c = OwnerShip.create(id: 2, name: 'Sergio Ramos')
-c = OwnerShip.create(id: 3, name: 'Marcos Rogerio')
+c = OwnerShip.create(id: 1, name: 'Erlon Rocha', email: 'erlon@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
+c = OwnerShip.create(id: 2, name: 'Fabio Lima', email: 'fabio@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
+c = OwnerShip.create(id: 3, name: 'Ze brito', email: 'brito@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
 
 
 puts 'Criando Embarcacoes '
