@@ -3,7 +3,7 @@ class Ship < ApplicationRecord
   has_many :travels
   has_many :tickets
 
-  validates :name, presence: true
+  validates :name, :owner_ship_id,  presence: true
 
   has_one_attached :image
 

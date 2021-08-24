@@ -1,5 +1,5 @@
 module Admin::V1
-  class ShipsController < OwnerApiController
+  class ShipsController <  ApplicationController
     before_action :load_ship, only: [:show]
     def index
       @ships = Ship.all
@@ -21,7 +21,7 @@ module Admin::V1
     end
 
     def ship_params
-      params.require(:ship).permit(:id, :name, :owner_ship_id)
+      params.require(:ship).permit(:name, :owner_ship_id)
     end
 
     def save_ship!
