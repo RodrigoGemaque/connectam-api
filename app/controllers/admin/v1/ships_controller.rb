@@ -1,5 +1,5 @@
 module Admin::V1
-  class ShipsController < ApiController
+  class ShipsController < OwnerApiController
     before_action :load_ship, only: [:show]
     def index
       @ships = Ship.all
