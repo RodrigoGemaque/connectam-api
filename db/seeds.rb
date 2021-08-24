@@ -9,7 +9,6 @@
 
 City.destroy_all
 Harbor.destroy_all
-OwnerShip.destroy_all
 Ship.destroy_all
 Route.destroy_all
 
@@ -43,10 +42,10 @@ d = Route.create(id: 7, departure: Harbor.first.city.name ,arrival: Harbor.fourt
 d = Route.create(id: 8, departure: Harbor.fourth.city.name ,arrival: Harbor.first.city.name, harbor_id: 2)
 
 
-puts 'Criando Donos de Embarcacoes '
-c = OwnerShip.create(id: 1, name: 'Erlon Rocha', email: 'erlon@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
-c = OwnerShip.create(id: 2, name: 'Fabio Lima', email: 'fabio@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
-c = OwnerShip.create(id: 3, name: 'Ze brito', email: 'brito@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
+# puts 'Criando Donos de Embarcacoes '
+# c = OwnerShip.create(id: 1, name: 'Erlon Rocha', email: 'erlon@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
+# c = OwnerShip.create(id: 2, name: 'Fabio Lima', email: 'fabio@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
+# c = OwnerShip.create(id: 3, name: 'Ze brito', email: 'brito@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
 
 
 puts 'Criando Embarcacoes '
