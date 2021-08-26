@@ -1,7 +1,7 @@
 module Admin::V1
   class TicketsController < ApplicationController
     ActionController::Parameters.permit_all_parameters = true
-    before_action :load_ticket, only: [:show]
+    before_action :load_ticket, only: [:show, :update, :destroy]
     def index
       @tickets = Ticket.all
     end
@@ -14,6 +14,16 @@ module Admin::V1
 
 
     def show; end
+
+
+    def update
+      @ticket.attributes = ticket_params
+      save_ticket!
+    end
+
+    def destroy
+      @ticket.destroy!
+    end
     
     private
 

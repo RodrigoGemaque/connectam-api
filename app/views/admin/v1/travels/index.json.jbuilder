@@ -3,7 +3,6 @@
 # end
 
 json.travels do
-
   json.array! @travels do |travel|
     json.partial! travel
   end

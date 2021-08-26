@@ -1,6 +1,6 @@
 module Admin::V1 
   class OwnerShipsController < ApiController
-    before_action :get_owner_ship, only: [:show, :destroy]
+    before_action :get_owner_ship, only: [:show,:update, :destroy]
     def index
       @owner_ships = OwnerShip.all
     end
@@ -11,6 +11,14 @@ module Admin::V1
     end
 
     def show; end
+
+
+    def update
+      @owner.attributes = owner_ship_params
+      save_owner_ship!
+    end
+
+
 
 
     def destroy

@@ -17,9 +17,9 @@ Rails.application.routes.draw do
                 :orders,
                 :ships,
                 :routes,
+                :users,
                 :line_items,
-                :travels, only: [:index, :create, :show, :destroy]
-
+                :travels
       get "home" => "home#index"          
     end
   end
