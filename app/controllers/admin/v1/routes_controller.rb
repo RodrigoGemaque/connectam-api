@@ -1,6 +1,6 @@
 module Admin::V1
   class RoutesController < ApiController
-    before_action :load_route, only: [:show, :destroy]
+    before_action :load_route, only: [:show,:update, :destroy]
     def index 
       @routes = Route.all
     end
@@ -15,6 +15,12 @@ module Admin::V1
 
     def destroy
       @route.destroy!
+    end
+
+
+    def update
+      @route.attributes = route_params
+      save_route!
     end
 
 

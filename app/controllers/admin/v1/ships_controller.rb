@@ -1,6 +1,6 @@
 module Admin::V1
-  class ShipsController < ApiController
-    before_action :load_ship, only: [:show]
+  class ShipsController <  ApplicationController
+    before_action :load_ship, only: [:show, :destroy, :update]
     def index
       @ships = Ship.all
     end
@@ -12,16 +12,25 @@ module Admin::V1
     end
 
     def show; end
+
+    def update
+      @ship.attributes = ship_params
+      save_ship!
+    end
+
+    def destroy
+      @ship.destroy!
+    end
     
     private
 
     def load_ship
       @ship = Ship.find(params[:id])
-      render :show
+      # render :show
     end
 
     def ship_params
-      params.require(:ship).permit(:id, :name, :owner_ship_id)
+      params.require(:ship).permit(:name,:image, :owner_ship_id)
     end
 
     def save_ship!

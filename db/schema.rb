@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_08_27_190040) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,9 +79,27 @@ ActiveRecord::Schema.define(version: 2021_08_27_190040) do
   end
 
   create_table "owner_ships", force: :cascade do |t|
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.boolean "allow_password_change", default: false
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "name"
+    t.integer "profile", default: 0
+    t.string "email"
+    t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["confirmation_token"], name: "index_owner_ships_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_owner_ships_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_owner_ships_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_owner_ships_on_uid_and_provider", unique: true
   end
 
   create_table "routes", force: :cascade do |t|
@@ -94,9 +113,9 @@ ActiveRecord::Schema.define(version: 2021_08_27_190040) do
 
   create_table "ships", force: :cascade do |t|
     t.string "name"
-    t.bigint "owner_ship_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "owner_ship_id", null: false
     t.index ["owner_ship_id"], name: "index_ships_on_owner_ship_id"
   end
 

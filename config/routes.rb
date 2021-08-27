@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth/user'
 
+  mount_devise_token_auth_for 'OwnerShip', at: 'auth/owner_ship'
+  # as :owner_ship do
+  #   # Define routes for OwnerShip within this block.
+  # end
+
   
   
   namespace :admin  do
@@ -12,9 +17,9 @@ Rails.application.routes.draw do
                 :orders,
                 :ships,
                 :routes,
+                :users,
                 :line_items,
-                :travels, only: [:index, :create, :show, :destroy]
-
+                :travels
       get "home" => "home#index"          
     end
   end

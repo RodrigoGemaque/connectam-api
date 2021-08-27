@@ -18,6 +18,13 @@ module Admin::V1
     def show; end
 
 
+
+    def update
+      @travel.attributes = travel_params
+      save_travel!
+    end
+
+
     def destroy
       @travel.destroy!
     end

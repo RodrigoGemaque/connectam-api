@@ -1,6 +1,6 @@
 module Admin::V1
   class HarborsController < ApiController
-    before_action :load_harbor, only: [:show]
+    before_action :load_harbor, only: [:show, :update, :destroy]
     
     def index
       @harbors = Harbor.all
@@ -12,6 +12,16 @@ module Admin::V1
     end
 
     def show; end
+
+
+    def update
+      @harbor.attributes = harbor_params
+      save_harbor!
+    end
+
+    def destroy
+      @ship.destroy!
+    end
     
 
     private 
