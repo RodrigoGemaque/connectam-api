@@ -1,6 +1,6 @@
 module Admin::V1
   class CitiesController < ApplicationController
-    before_action :load_city, only: [:show, :destroy]
+    before_action :load_city, only: [:show, :destroy, :update]
     def index
       @cities = City.all
     end
@@ -12,6 +12,12 @@ module Admin::V1
     end
 
     def show; end
+
+
+    def update
+      @city.attributes = city_params
+      save_city!
+    end
 
     def destroy
       @city.destroy!

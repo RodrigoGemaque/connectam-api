@@ -1,7 +1,7 @@
-class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
+class DeviseTokenAuthCreateOwnerShips < ActiveRecord::Migration[6.1]
   def change
     
-    create_table(:users) do |t|
+    create_table(:owner_ships) do |t|
       ## Required
       t.string :provider, :null => false, :default => "email"
       t.string :uid, :null => false, :default => ""
@@ -30,8 +30,8 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
 
       ## User Info
       t.string :name
+      t.integer :profile, default: 0
       t.string :email
-      t.integer :profile, default: 1
 
       ## Tokens
       t.json :tokens
@@ -39,10 +39,10 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_index :users, :email,                unique: true
-    add_index :users, [:uid, :provider],     unique: true
-    add_index :users, :reset_password_token, unique: true
-    add_index :users, :confirmation_token,   unique: true
-    # add_index :users, :unlock_token,         unique: true
+    add_index :owner_ships, :email,                unique: true
+    add_index :owner_ships, [:uid, :provider],     unique: true
+    add_index :owner_ships, :reset_password_token, unique: true
+    add_index :owner_ships, :confirmation_token,   unique: true
+    # add_index :owner_ships, :unlock_token,         unique: true
   end
 end

@@ -9,7 +9,6 @@
 
 City.destroy_all
 Harbor.destroy_all
-OwnerShip.destroy_all
 Ship.destroy_all
 Route.destroy_all
 
@@ -43,10 +42,10 @@ d = Route.create(id: 7, departure: Harbor.first.city.name ,arrival: Harbor.fourt
 d = Route.create(id: 8, departure: Harbor.fourth.city.name ,arrival: Harbor.first.city.name, harbor_id: 2)
 
 
-puts 'Criando Donos de Embarcacoes '
-c = OwnerShip.create(id: 1, name: 'Erlon Rocha')
-c = OwnerShip.create(id: 2, name: 'Sergio Ramos')
-c = OwnerShip.create(id: 3, name: 'Marcos Rogerio')
+# puts 'Criando Donos de Embarcacoes '
+# c = OwnerShip.create(id: 1, name: 'Erlon Rocha', email: 'erlon@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
+# c = OwnerShip.create(id: 2, name: 'Fabio Lima', email: 'fabio@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
+# c = OwnerShip.create(id: 3, name: 'Ze brito', email: 'brito@gmail.com', password: '123456', password_confirmation: '123456', profile: 0)
 
 
 puts 'Criando Embarcacoes '
@@ -75,12 +74,12 @@ c.image.attach(io: File.open(path_image), filename: 'ship5.jpg')
 
 puts 'Criando Viagens'
 c = Travel.create(id: 1, date: '07-07-2021',price: 80, hour: '12:00', ship_id: 1, route_id: 1)
-c = Travel.create(id: 2, date: '10-07-2021',price: 80, hour: '12:00', ship_id: 1, route_id: 2)
+c = Travel.create(id: 2, date: '10-07-2021',price: 80, hour: '20:00', ship_id: 1, route_id: 2)
 
 
-c = Travel.create(id: 3, date: '10-07-2021',price: 30, hour: '12:00', ship_id: 4, route_id: 3)
+c = Travel.create(id: 3, date: '10-07-2021',price: 30, hour: '15:40', ship_id: 4, route_id: 3)
 c = Travel.create(id: 4, date: '12-07-2021',price: 30, hour: '12:00', ship_id: 4, route_id: 4)
 
 
-c = Travel.create(id: 5, date: '15-07-2021',price: 30, hour: '12:00', ship_id: 2, route_id: 5)
+c = Travel.create(id: 5, date: '15-07-2021',price: 30, hour: '13:00', ship_id: 2, route_id: 5)
 c = Travel.create(id: 6, date: '18-07-2021',price: 30, hour: '12:00', ship_id: 2, route_id: 6)

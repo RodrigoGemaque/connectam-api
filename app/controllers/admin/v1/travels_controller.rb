@@ -18,6 +18,13 @@ module Admin::V1
     def show; end
 
 
+
+    def update
+      @travel.attributes = travel_params
+      save_travel!
+    end
+
+
     def destroy
       @travel.destroy!
     end
@@ -29,13 +36,15 @@ module Admin::V1
   end
 
   def travel_params
-    params.require(:travel).permit(:id, :date,:price, :hour, :route_id, :ship_id )
+    hour = 12
+    params.require(:travel).permit(:id, :date,:price , :route_id, :ship_id, :hour )
   end
 
   def save_travel!
     @travel.save!
     render :show
   end
+
 
 
 

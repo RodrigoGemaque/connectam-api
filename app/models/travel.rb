@@ -4,5 +4,7 @@ class Travel < ApplicationRecord
 
   has_many :line_items
 
-  validates :date, :price, presence: true
+  validates :date,:hour, :price, presence: true
+
+
 end

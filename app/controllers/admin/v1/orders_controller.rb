@@ -18,7 +18,7 @@ module Admin::V1
 
     def order_params
       params.require(:order).permit(:user_id, 
-                                    line_items_attributes: [:status,:quantity, :travel_id, tickets_attributes:[:name,:cpf, :email] ])
+                                    line_items_attributes: [:status,:quantity, :travel_id, tickets_attributes:[:name,:cpf, :email, :ship_id] ])
     end
 
     def save_order!
